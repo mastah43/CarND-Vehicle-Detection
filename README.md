@@ -188,16 +188,15 @@ Here's a [link to my video result](./project_video.mp4)
 To filter false positives I used the fact that vehicles in an image should be detected by multiple overlapping
 bounding boxes coming from the different scales in the sliding window search. To implement this, I used a heatmap:
 Each bounding box for a vehicle detection added 1 to the heat map. I applied a threshold  on this heatmap 
-(which means that at least two overlapping bounding boxes are required for a vehicle detection) to derive
-the final vehicle detection bounding boxes. 
+to derive the final vehicle detection bounding boxes. 
 I also used a history of the heatmaps of the last frames to filter our false positives. I combined (added) the
 heatmaps of the last frames and the current frame. This should help to distinguish fast moving static objects 
 (moving fast in the camera images) from slow moving other vehicle that drive in the same direction as the 
-ego vehicle.
+ego vehicle. This filters most false positives in static objects like the road surface.
 The code for this part is in section 'Filtering False Positives using Heatmap' in the jupyter notebook
-ad well as in the function 'process_video_image'.
+and in the function 'process_video_image'.
 
-Here is the heatmap for test image 1:
+Here is the heatmap for detected bounding boxes in test image 1:
 ![alt text][heatmap]
 
 
@@ -215,8 +214,8 @@ The heatmap approach helped to remove most of the false positives but not all. T
 result for the classifier, I could manually filter the images used for the test data set by removing all but one image
 from the nearly same perspective on the same car.
 
-Due to the training data set used which only contains images from the back of vehicles, crossing vehicles which are 
-seen from the side and incoming vehicles might not be detected properly. In addition, my approach on using the heatmaps
+The training data set contains mostly only images from the back of vehicles. Thus crossing vehicles which are 
+seen from the side and incoming vehicles might not be detected. In addition, my approach on using the heatmaps
 from previous frames is best suited to detect vehicle moving with a low relative velocity in the same direction 
 in front of the ego vehicle. This could be improved by adding more training images with vehicles from other angles.
 Also the bounding boxes detected in a video for the same car differs (wobbles) over time (framewise). This could be
