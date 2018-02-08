@@ -53,9 +53,9 @@ The following files are contained:
 [windows_2]: ./output_images/windows-2.jpg "Windows 2"
 [windows_3]: ./output_images/windows-3.jpg "Windows 3"
 [windows_4]: ./output_images/windows-4.jpg "Windows 4"
-[windows_5]: ./output_images/windows-4.jpg "Windows 4"
-[windows_6]: ./output_images/windows-4.jpg "Windows 4"
-[windows_7]: ./output_images/windows-4.jpg "Windows 4"
+[windows_5]: ./output_images/windows-5.jpg "Windows 5"
+[windows_6]: ./output_images/windows-6.jpg "Windows 6"
+[windows_7]: ./output_images/windows-7.jpg "Windows 7"
 [imgs_test_bboxes_0]: ./output_images/imgs_test_bboxes_0.jpg "Test Image 1 BBoxes"
 [imgs_test_bboxes_1]: ./output_images/imgs_test_bboxes_1.jpg "Test Image 2 BBoxes"
 [imgs_test_bboxes_2]: ./output_images/imgs_test_bboxes_2.jpg "Test Image 3 BBoxes"
@@ -114,7 +114,7 @@ My final choice on hog parameters is:
 
 #### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
-I trained a linear SVM using the HOG featuresa and color histogram features.
+I trained a linear SVM using the HOG features and color histogram features.
 
 For the color histogram I am using 32 bins for every channel in RGB color space.
 I am using all channels of RGB for the color histogram since the histogram of vehicle images differentiates 
